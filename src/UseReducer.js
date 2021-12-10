@@ -38,7 +38,7 @@ const UseReducer = ({ name }) => {
             <input value={state.value} onChange={(event) => {
                     console.log("3");
                 dispatch({
-                    type: "WRITE",
+                    type: actionTypes.write,
                     payload: event.target.value
                 })
             }
@@ -46,7 +46,7 @@ const UseReducer = ({ name }) => {
                 placeholde="codigo de seguridad" />
             <button onClick={()=>{
                 dispatch({
-                    type: "CHECK"
+                    type: actionTypes.check
                 })
             }
                 }>Comprobar</button>
@@ -62,12 +62,12 @@ const UseReducer = ({ name }) => {
             <p>¿Seguro que quieres elimina?</p>
             <button onClick={()=>{
                 dispatch({
-                    type: "DELETE"
+                    type: actionTypes.delete
                 })
             }}>Aceptar</button>
             <button onClick={()=>{
                 dispatch({
-                    type: "RESET"
+                    type: actionTypes.reset
                 })
             }}>Cancelar </button>
         </>
@@ -76,7 +76,7 @@ const UseReducer = ({ name }) => {
             <p>Eliminado con exito!!</p>
             <button onClick={()=>{
                 dispatch({
-                    type: "RESET"
+                    type: actionTypes.reset
                 })
             }}>Reiniciar </button>
         </>
@@ -93,6 +93,15 @@ const initialState = {
     delete: false,
     confirmed: false,
 }
+const actionTypes={
+    confirm:"CONFIRM",
+    error:"ERROR",
+    check:"CHECK",
+    write:"WRITE",
+    delete:"DELETE",
+    reset:"RESET"
+}
+
 const reducerObject = (state, payload) => ({
     "ERROR": {
         ...state,
