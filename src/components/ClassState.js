@@ -24,15 +24,15 @@ class ClassState extends React.Component {
                 console.log("Haciendo la validacio");
 
                 if (this.state.value === SECURITY_CODE) {
-                    this.setState({ loading: false,error: false  });
+                    this.setState({ loading: false, error: false });
                     console.log("el codigo es correcto")
 
                 } else {
-                    this.setState({ loading: false,error: true  });
-            
+                    this.setState({ loading: false, error: true });
+
                 }
                 console.log("Se termino la validacion");
-            },1000);
+            }, 1000);
         }
     }
     render() {
